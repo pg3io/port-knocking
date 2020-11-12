@@ -1,0 +1,4 @@
+all:
+  hosts:
+    web1.host.pg3.xyz:
+      portlist: ['9000','7000','8001']

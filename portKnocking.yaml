@@ -1,0 +1,15 @@
+---
+- name: port knocking 
+  hosts: all 
+  become: yes
+  become_user: root
+  connection: local
+  vars:
+  tasks:
+    - name: knock
+      wait_for:
+        host: '{{ inventory_hostname }}'
+        port: '{{ item }}'
+        timeout: '1'
+        state: 'stopped'
+      with_items: "{{ portlist }}"
